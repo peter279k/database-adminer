@@ -111,8 +111,7 @@ echo "$DEPLOYMENT_TARGET";
 if [ -e "$DEPLOYMENT_TARGET/index.php" ]; then
   echo "Found entry index.php"
   pushd "$DEPLOYMENT_TARGET"
-  rm -f "$DEPLOYMENT_TARGET/index.php"
-  echo "<?php echo 'Hello! Change entry index.php'" >> "$DEPLOYMENT_TARGET/index.php"
+  echo "<?php echo 'Hello! Change entry index.php';" >> "$DEPLOYMENT_TARGET/index.php"
   exitWithMessageOnError "Entry index.php change failed"
   popd
 fi
