@@ -108,11 +108,12 @@ fi
 
 # 5. Change entry index.php contents
 echo "$DEPLOYMENT_TARGET";
-if [ -e "$DEPLOYMENT_TARGET/index.php" ]; then
-  echo "Found entry index.php"
+if [ -e "$DEPLOYMENT_TARGET/.env.example" ]; then
+  echo "Found entry .env.example"
   pushd "$DEPLOYMENT_TARGET"
-  echo "<?php echo 'Hello! Change entry index.php';" >> "$DEPLOYMENT_TARGET/index.php"
-  exitWithMessageOnError "Entry index.php change failed"
+  cp .env.example .env
+  sed -r -i 's/localhost/127.0.0.1/g' ./.env
+  exitWithMessageOnError "Set .env work failed"
   popd
 fi
 
