@@ -20,5 +20,5 @@ COPY ./nginx-default.conf /etc/nginx/sites-available/default
 COPY ./*.php ./
 COPY ./.htpasswd /etc/nginx
 
-EXPOSE 5000
+EXPOSE 80
 CMD ["bash", "-c", "service php7.1-fpm start && nginx -g 'daemon off;'"]
